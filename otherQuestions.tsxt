@@ -1,0 +1,106 @@
+Question # 1.1
+
+
+Questions 1 answers regarding inedxing and model creation are done in the files which are inside the project.
+================================
+
+Question # 1.2
+
+Prevent redundant queries
+
+
+In order to prevent redundant queries we can create a class through which we can define the queries like limit,find,skip etc
+we can prebuid these generic queries and can use these again and again to prevent code redundancy also we can write ErrorHandles
+and ResponsesHandler classes so that we dont have to write errors and responses again and again responses example is in util file of response
+
+
+=======================
+
+Question # 2.1
+
+=======================
+
+question 2.1 answer is in dsaQuestions file
+
+
+
+===================
+
+Question # 3
+
+ Implement Rate Limiting
+
+ this question is done in app.js file using express rate limite
+
+ ======================
+
+
+Question 4. Debugging & Error Handling (10 points)
+
+
+```js
+app.get("/user", async (req, res) => {
+    const user = await User.findById(req.query.id);
+    res.json(user.name);
+});
+
+
+in above the issue is that we are not sending javascript object in json res.json(user.name ) it is qrong it should be like below
+
+res.json({name:user.name})
+
+=====================================
+
+6. React Problem-Solving (15 points)
+
+Question 6.1: Fix the React Component Render Issue
+
+Fix the issue in the following React component that doesn't update correctly when new tasks are received:
+```jsx
+function TaskList({ tasks }) {
+  const [filteredTasks, setFilteredTasks] = useState(tasks.filter(task => task.completed));
+  return (
+    <ul>
+      {filteredTasks.map(task => (
+        <li key={task.id}>{task.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+
+fixed code is 
+-------------------
+
+function TaskList({ tasks }) {
+  const [filteredTasks, setFilteredTasks] = useState(tasks.filter(task => task.completed));
+  return (
+    <ul>
+      {filteredTasks.map(task => (
+       return (
+        <li key={task.id}>{task.name}</li>
+        )
+      ))}
+    </ul>
+  );
+}
+
+
+map was not returning anything.
+
+===============================================
+
+Question B1
+
+Implement an API that deletes a task by ID and returns an appropriate response.
+
+
+this question is deon in taskcontroller file.
+
+
+Question B2
+
+Design an API that allows searching tasks by title or status with pagination.
+
+this question is also done in taskController.js file.
